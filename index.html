@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover lets the layout reach under the notch and the
+         Android gesture bar; the safe-area padding in index.css handles insets. -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <title>Overtime Calculator</title>
+    <meta
+      name="description"
+      content="Calculate overtime pay and total monthly earnings. Supports GI and Non-GI overtime rules."
+    />
+    <link rel="icon" type="image/png" href="/overtime-calculator-web/favicon.png" />
+    <link rel="apple-touch-icon" href="/overtime-calculator-web/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/overtime-calculator-web/manifest.webmanifest" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#d5f2e6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f2a22" media="(prefers-color-scheme: dark)" />
+
+    <script>
+      // Set the theme class before first paint so a dark-mode phone never
+      // flashes a white screen while React boots.
+      (function () {
+        try {
+          var dark = window.matchMedia('(prefers-color-scheme: dark)');
+          var apply = function (on) {
+            document.documentElement.classList.toggle('dark', on);
+          };
+          apply(dark.matches);
+          dark.addEventListener('change', function (e) {
+            apply(e.matches);
+          });
+        } catch (e) {
+          /* Theme detection is optional; the light palette is the default. */
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/overtime-calculator-web/assets/index-W4tNGx5Q.js"></script>
+    <link rel="stylesheet" crossorigin href="/overtime-calculator-web/assets/index-BVOc2-Vy.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
